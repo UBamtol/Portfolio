@@ -1,68 +1,125 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+@import 'tailwindcss';
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Noto Sans KR', sans-serif;
+}
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+/* 여기에 색상들을 다 지정해놓고 라이트모드일때, 다크모드일때, 시스템 설정 모드일때 */
+/* @layer base - 기본이 되는 디자인, 스타일이 전역으로 적용됨 */
+/* @layer components - 재사용 가능한 ui요소에 스타일 지정 */
+/* @utilities - margin, padding, colors 등과 같은 개별 속성에 대한 스타일*/
+/* @apply - css에 tailwindcss 문법을 넣는 것 */
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #181818;
+
+  --color-line: #e2e8f0;
+
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #020817;
+
+  /* --radius: 0.5rem; */
+  --animate-slideDown: slideDown 0.3s ease-out 200ms backwards;
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  --animate-fadeUpSm: fadeUpSm 0.8s ease-out forwards;
+  @keyframes fadeUpSm {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeUpMd: fadeUpMd 0.8s ease-out 200ms backwards;
+  @keyframes fadeUpMd {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeUpLg: fadeUpLg 0.8s ease-out 400ms backwards;
+  @keyframes fadeUpLg {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.border {
+  border-color: var(--border);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+@utility container {
+  /* padding: 1rem; */
+  max-width: 1400px;
 }
-button:hover {
-  border-color: #646cff;
+/* @utility container {
+  padding: 20px;
+  max-width: 1280px;
+  margin: auto;
+} */
+
+/* 속성 추가하는 것 */
+/* @theme {
+  --deepblue-500: #023047;
+  --amber-500: #fb8500;
+  --alabaster-500: #e0e1dd;
+  --text-base2: 40px;
+  --radius-lg: 30px;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.bg-deepblue {
+  background-color: var(--deepblue-500);
+}
+.typography {
+  p {
+    font-size: var(--text-base2);
+    color: var(--amber-500);
+  }
+  img {
+    border-radius: var(--radius-lg);
+  }
+}
+.bg-amber {
+  background-color: var(--amber-500);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.text-alabaster {
+  color: var(--alabaster-500);
 }
+.text-amber {
+  color: var(--amber-500);
+} */
+
+/* 자주 쓰는 스타일 구조를 설정할 수 있음 */
+/* @utility container {
+  padding: 20px;
+  max-width: 1280px;
+  margin: auto;
+} */
