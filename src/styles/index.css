@@ -18,7 +18,7 @@ body {
   --color-line: #e2e8f0;
 
   --color-muted: #f1f5f9;
-  --color-muted-foreground: #64748b;
+  --color-muted-foreground: #71717a;
 
   --border: #e2e8f0;
   --input: #e2e8f0;
@@ -61,6 +61,28 @@ body {
 
   --animate-fadeUpLg: fadeUpLg 0.8s ease-out 400ms backwards;
   @keyframes fadeUpLg {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  --animate-fadeUpXl: fadeUpXl 0.8s ease-out 600ms backwards;
+  @keyframes fadeUpXl {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  --animate-fadeUp2Xl: fadeUp2Xl 0.8s ease-out 800ms backwards;
+  @keyframes fadeUp2Xl {
     0% {
       opacity: 0;
       transform: translateY(20px);

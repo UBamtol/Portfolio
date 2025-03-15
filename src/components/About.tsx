@@ -1,9 +1,80 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { FileText, Github } from 'lucide-react';
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const obsever = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          obsever.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (targetRef.current) {
+      obsever.observe(targetRef.current);
+    }
+    return () => {
+      if (targetRef.current) {
+        obsever.unobserve(targetRef.current);
+      }
+    };
+  }, []);
   return (
-    <section id="about" className="bg-muted/30 h-100 border-2 py-20">
-      <div className="container mx-auto px-4 md:px-6">about</div>
+    <section id="about" className="bg-muted/30 py-20" ref={targetRef}>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="gird-cols-1 grid items-center gap-12 md:grid-cols-2">
+          {/* 이력서 사진 */}
+          <div
+            className={`relative transition-opacity ${isVisible ? 'animate-fadeUpSm' : 'opacity-0'}`}
+          >
+            <div className="relative overflow-hidden rounded-lg shadow-lg">
+              <img
+                src=""
+                alt="이력서 사진"
+                className="h-150 w-full object-cover"
+              />
+            </div>
+          </div>
+          {/* about me */}
+          <div className="space-y-6">
+            <div
+              className={`${isVisible ? 'animate-fadeUpMd' : 'opacity-0'} transition-opacity delay-700`}
+            >
+              <h2 className="mb-2 text-3xl font-bold">About Me</h2>
+              <div className="bg-foreground h-1 w-20" />
+            </div>
+            <div
+              className={`${isVisible ? 'animate-fadeUpLg' : 'opacity-0'} text-muted-foreground text-lg transition-opacity delay-700`}
+            >
+              자기소개1
+            </div>
+            <div
+              className={`${isVisible ? 'animate-fadeUpXl' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+            >
+              자기소개2
+            </div>
+
+            {/* buttons */}
+            <div
+              className={`${isVisible ? 'animate-fadeUp2Xl' : 'opacity-0'} flex flex-wrap gap-4 pt-2 text-sm transition-opacity`}
+            >
+              <button className="hover:bg-muted flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer">
+                <FileText className="h-4 w-4" />
+                이력서 다운로드
+              </button>
+              <button className="hover:bg-muted flex h-9 items-center justify-center gap-2 rounded-full px-3 hover:cursor-pointer">
+                <Github className="h-4 w-4" />
+                <span className="sr-only">깃허브</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
