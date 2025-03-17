@@ -12,18 +12,24 @@ const Home = () => {
 
         <div className="z-10 mx-auto max-w-3xl text-center">
           <div>
-            <h1 className="animate-fadeUpSm mb-4 text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="animate-fadeUp8F mb-4 text-4xl font-bold tracking-tight md:text-6xl">
               <span className="text-foreground">Frontend Developer</span>
             </h1>
 
-            <div className="animate-fadeUpMd">
+            <div
+              className="animate-fadeUp8B"
+              style={{ animationDelay: '0.2s' }}
+            >
               <p className="text-muted-foreground mb-8 text-xl md:text-2xl">
                 간단한 자기소개
               </p>
             </div>
           </div>
 
-          <div className="animate-fadeUpLg flex flex-col justify-center gap-4 sm:flex-row">
+          <div
+            className="animate-fadeUp8B flex flex-col justify-center gap-4 sm:flex-row"
+            style={{ animationDelay: '0.4s' }}
+          >
             <button className="bg-foreground text-background h-11 rounded-md border px-8 text-sm font-medium hover:cursor-pointer">
               프로젝트 보기
             </button>

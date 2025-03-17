@@ -30,7 +30,7 @@ const About = () => {
         <div className="gird-cols-1 grid items-center gap-12 md:grid-cols-2">
           {/* 이력서 사진 */}
           <div
-            className={`relative transition-opacity ${isVisible ? 'animate-fadeUpSm' : 'opacity-0'}`}
+            className={`relative transition-opacity ${isVisible ? 'animate-fadeUp6F' : 'opacity-0'}`}
           >
             <div className="relative overflow-hidden rounded-lg shadow-lg">
               <img
@@ -43,25 +43,29 @@ const About = () => {
           {/* about me */}
           <div className="space-y-6">
             <div
-              className={`${isVisible ? 'animate-fadeUpMd' : 'opacity-0'} transition-opacity delay-700`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} transition-opacity`}
+              style={{ animationDelay: '0.2s' }}
             >
               <h2 className="mb-2 text-3xl font-bold">About Me</h2>
               <div className="bg-foreground h-1 w-20" />
             </div>
             <div
-              className={`${isVisible ? 'animate-fadeUpLg' : 'opacity-0'} text-muted-foreground text-lg transition-opacity delay-700`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+              style={{ animationDelay: '0.4s' }}
             >
               자기소개1
             </div>
             <div
-              className={`${isVisible ? 'animate-fadeUpXl' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+              style={{ animationDelay: '0.6s' }}
             >
               자기소개2
             </div>
 
             {/* buttons */}
             <div
-              className={`${isVisible ? 'animate-fadeUp2Xl' : 'opacity-0'} flex flex-wrap gap-4 pt-2 text-sm transition-opacity`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} flex flex-wrap gap-4 pt-2 text-sm transition-opacity`}
+              style={{ animationDelay: '0.8s' }}
             >
               <button className="hover:bg-muted flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer">
                 <FileText className="h-4 w-4" />
