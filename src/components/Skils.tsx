@@ -1,18 +1,12 @@
 import {
-  Box,
   Code,
   Database,
-  FigmaIcon,
-  FileJson,
   GitBranch,
-  Globe,
   Layers,
   Layout,
   Palette,
-  Server,
-  Workflow,
 } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Skils = () => {
   const [isVisible, setIsVisible] = useState(false);

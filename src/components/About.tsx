@@ -27,21 +27,22 @@ const About = () => {
   return (
     <section id="about" className="bg-muted/30 py-20" ref={targetRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="gird-cols-1 grid items-center gap-12 md:grid-cols-2">
+        <div className="gird-cols-1 grid items-center gap-12 md:grid-cols-3">
           {/* 이력서 사진 */}
           <div
-            className={`relative transition-opacity ${isVisible ? 'animate-fadeUp6F' : 'opacity-0'}`}
+            className={`relative transition-opacity md:col-span-1 ${isVisible ? 'animate-fadeUp6F' : 'opacity-0'}`}
           >
             <div className="relative overflow-hidden rounded-lg shadow-lg">
               <img
-                src=""
+                src="/assets/yuinjun_blue_full.jpg"
+                // src="/assets/placeholder.svg"
                 alt="이력서 사진"
-                className="h-150 w-full object-cover"
+                className="h-auto w-full object-cover"
               />
             </div>
           </div>
           {/* about me */}
-          <div className="space-y-6">
+          <div className="space-y-6 md:col-span-2">
             <div
               className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} transition-opacity`}
               style={{ animationDelay: '0.2s' }}
