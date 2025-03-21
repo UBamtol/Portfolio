@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-const Skils = () => {
+const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const targetRef = useRef(null);
 
@@ -361,7 +361,7 @@ const Skils = () => {
   ];
 
   return (
-    <section id="skils" className="py-20" ref={targetRef}>
+    <section id="skills" className="py-20" ref={targetRef}>
       <div className="container mx-auto px-4 md:px-5">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">기술 스택</h2>
@@ -403,4 +403,4 @@ const Skils = () => {
   );
 };
 
-export default Skils;
+export default Skills;
