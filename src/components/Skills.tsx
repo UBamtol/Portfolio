@@ -361,10 +361,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20" ref={targetRef}>
+    <section id="skills" className="py-20">
       <div className="container mx-auto px-4 md:px-5">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold">기술 스택</h2>
+          <h2 className="mb-4 text-3xl font-bold">Skills</h2>
           <div className="bg-foreground mx-auto mb-6 h-1 w-20 max-w-2xl" />
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             프론트엔드 개발에 필요한 다양한 기술들을 학습하고 프로젝트에
@@ -373,7 +373,10 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          ref={targetRef}
+        >
           {skils.map((skilGroup, index) => (
             <div
               key={index}
@@ -387,7 +390,7 @@ const Skills = () => {
                 <h3 className="text-xl font-semibold">{skilGroup.category}</h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 pl-1">
                 {skilGroup.items.map((skil, skilIndex) => (
                   <div key={skilIndex} className="flex items-center gap-3">
                     <div className="flex-shrink-0">{skil.icon}</div>

@@ -105,10 +105,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="bg-muted/30 border py-20">
+    <section id="projects" className="bg-muted/30 py-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold">프로젝트</h2>
+          <h2 className="mb-4 text-3xl font-bold">Projects</h2>
           <div className="bg-foreground mx-auto mb-6 h-1 w-20" />
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             다양한 기술을 활용하여 개발한 프로젝트들입니다. 각 프로젝트는 특정

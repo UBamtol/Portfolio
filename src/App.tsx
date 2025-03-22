@@ -5,6 +5,7 @@ import Projects from '@/components/Projects';
 import { useEffect } from 'react';
 import '@/styles/index.css';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </div>
   );
 }
