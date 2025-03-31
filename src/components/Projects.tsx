@@ -109,7 +109,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">Projects</h2>
-          <div className="bg-foreground mx-auto mb-6 h-1 w-20" />
+          <div className="bg-primary mx-auto mb-6 h-1 w-20" />
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             다양한 기술을 활용하여 개발한 프로젝트들입니다. 각 프로젝트는 특정
             문제를 해결하기 위한 과정과 결과물을 보여줍니다.
@@ -117,9 +117,9 @@ const Projects = () => {
         </div>
 
         <div ref={targetRef} className="relative">
-          <div className="absolute top-1/2 z-10 hidden w-full -translate-y-1/2 justify-between px-4 md:flex">
+          <div className="pointer-events-none absolute top-1/2 z-10 hidden w-full -translate-y-1/2 justify-between px-4 md:flex">
             <button
-              className="bg-background/80 flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm hover:cursor-pointer"
+              className="bg-background hover:bg-accent pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
               onClick={() => (preProject(), handleClicked())}
               disabled={buttonDisabled}
             >
@@ -127,7 +127,7 @@ const Projects = () => {
               <span className="sr-only">Previous project</span>
             </button>
             <button
-              className="bg-background/80 flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm hover:cursor-pointer"
+              className="bg-background hover:bg-accent pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
               onClick={() => (nextProject(), handleClicked())}
               disabled={buttonDisabled}
             >
@@ -140,7 +140,7 @@ const Projects = () => {
             className={`${isVisible ? 'animate-fadeUp6F' : 'opacity-0'} gird-cols-1 grid items-center gap-8 md:grid-cols-2`}
           >
             <div
-              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg relative overflow-hidden rounded-lg border`}
+              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg border-border relative overflow-hidden rounded-lg border`}
             >
               <img
                 src={projects[activeProject].image || '/assets/placeholder.svg'}
@@ -148,24 +148,24 @@ const Projects = () => {
               />
               <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-all hover:opacity-100">
                 <div className="flex gap-4">
-                  <button className="bg-foreground text-background rounded-lg">
+                  <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer">
                     <a
                       href={projects[activeProject].liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 p-2"
+                      className="flex items-center gap-2 text-sm"
                     >
                       <ExternalLink className="h-4 w-4" />
                       Live Demo
                     </a>
                   </button>
 
-                  <button className="text-foreground bg-background rounded-lg">
+                  <button className="hover:bg-accent hover:text-accent-foreground border-input bg-background flex h-9 items-center justify-center gap-2 rounded-md border px-3 text-sm font-medium hover:cursor-pointer">
                     <a
                       href={projects[activeProject].githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 p-2"
+                      className="flex items-center gap-2 text-sm"
                     >
                       <Github className="h-4 w-4" />
                       Code
@@ -191,7 +191,7 @@ const Projects = () => {
                 {projects[activeProject].tags.map((tag, index) => (
                   <div
                     key={index}
-                    className="bg-muted py flex items-center rounded-full border px-2 py-1 text-xs font-semibold"
+                    className="bg-secondary text-secondary-foreground hover:bg-secondary/10 flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold hover:-translate-y-0.5 hover:cursor-pointer hover:shadow-md"
                   >
                     {tag}
                   </div>
@@ -199,7 +199,7 @@ const Projects = () => {
               </div>
               {/* 프로젝트 상세 보기 */}
               <button
-                className="bg-background hover:bg-muted flex items-center justify-center gap-2 rounded-md border p-2 font-medium"
+                className="bg-background hover:bg-accent hover:text-accent-foreground border-input flex items-center justify-center gap-2 rounded-md border p-2 font-medium hover:cursor-pointer"
                 onClick={() => (
                   setModalOpen(!modalOpen), setIsClosing(!isClosing)
                 )}
@@ -213,7 +213,7 @@ const Projects = () => {
             {projects.map((_, index) => (
               <button
                 key={index}
-                className={`h-3 w-3 rounded-full transition-colors duration-500 ${index === activeProject ? 'bg-foreground' : 'bg-muted-foreground/30'} hover:cursor-pointer`}
+                className={`h-3 w-3 rounded-full transition-colors duration-500 ${index === activeProject ? 'bg-primary' : 'bg-muted-foreground/30'} hover:cursor-pointer`}
                 onClick={() => (setActiveProject(index), handleClicked())}
                 disabled={buttonDisabled}
               />
@@ -261,23 +261,23 @@ const Projects = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <button className="bg-foreground text-background hover:bg-muted flex items-center justify-center gap-2 rounded-md border p-2 font-medium">
+                <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
                   <a
                     href={projects[activeProject].githubUrl}
                     target="blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm"
+                    className="flex items-center gap-2 p-2 text-sm"
                   >
                     <ExternalLink className="h-4 w-4" />
                     라이브 데모
                   </a>
                 </button>
-                <button className="bg-background hover:bg-muted flex items-center justify-center gap-2 rounded-md border p-2 font-medium">
+                <button className="bg-background hover:bg-accent hover:text-accent-foreground border-border flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
                   <a
                     href={projects[activeProject].githubUrl}
                     target="blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm"
+                    className="flex items-center gap-2 p-2 text-sm"
                   >
                     <Github className="h-4 w-4" />
                     GitHub 저장소

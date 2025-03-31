@@ -51,7 +51,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">Contact Me</h2>
-          <div className="bg-foreground mx-auto mb-6 h-1 w-20" />
+          <div className="bg-primary mx-auto mb-6 h-1 w-20" />
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             프로젝트 협업, 채용 문의, 또는 궁금한 점이 있으시면 언제든지
             연락해주세요. 빠른 시일 내에 답변 드리겠습니다.
@@ -63,6 +63,7 @@ const Contact = () => {
         >
           {contactInfo.map((item, index) => (
             <div
+              key={index}
               className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} rounded-lg p-2 transition-all md:p-6 lg:col-span-1`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -72,7 +73,7 @@ const Contact = () => {
                 className="group flex items-start gap-4"
                 target="_blank"
               >
-                <div className="bg-muted text-foreground group-hover:bg-foreground group-hover:text-background rounded-md p-3 transition-colors">
+                <div className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground rounded-md p-3 transition-colors">
                   {item.icon}
                 </div>
                 <div className="flex w-full flex-col gap-1 overflow-hidden">

@@ -48,31 +48,38 @@ const About = () => {
               style={{ animationDelay: '0.2s' }}
             >
               <h2 className="mb-2 text-3xl font-bold">About Me</h2>
-              <div className="bg-foreground h-1 w-20" />
+              <div className="bg-primary h-1 w-20" />
             </div>
             <div
               className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
               style={{ animationDelay: '0.4s' }}
             >
-              자기소개1
+              <b>사용자 경험</b>을 혁신하는 프론트엔드 개발에 대한 깊은 열정을
+              가진 신입 개발자 <b>유인준</b>입니다.
+              <br />
+              HTML, CSS, JavaScript에 대한 탄탄한 이해를 바탕으로, React를
+              활용하여 사용자 친화적인 웹 인터페이스 개발에 주력해 왔습니다.
             </div>
             <div
               className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
               style={{ animationDelay: '0.6s' }}
             >
-              자기소개2
+              <b>끊임없는 학습</b>을 통해 <b>빠르게 성장</b>하며, <b>혁신적</b>
+              이고 <b>영향력</b> 있는 웹 서비스 개발에 기여하고 싶습니다.{' '}
+              <b>뛰어난 문제 해결 능력</b>과 <b>협업 능력</b>을 바탕으로 팀에{' '}
+              <b>빠르게 적응</b>하여 최고의 결과물을 만들어내겠습니다.
             </div>
 
             {/* buttons */}
             <div
-              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} flex flex-wrap gap-4 pt-2 text-sm transition-opacity`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} flex flex-wrap items-center gap-4 text-sm transition-opacity`}
               style={{ animationDelay: '0.8s' }}
             >
-              <button className="hover:bg-muted flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer">
+              <button className="hover:bg-accent hover:text-accent-foreground border-input bg-background flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer">
                 <FileText className="h-4 w-4" />
                 이력서 다운로드
               </button>
-              <button className="hover:bg-muted flex h-9 items-center justify-center gap-2 rounded-full px-3 hover:cursor-pointer">
+              <button className="hover:bg-accent hover:text-accent-foreground flex h-10 w-10 items-center justify-center gap-2 rounded-full px-3 hover:cursor-pointer">
                 <Github className="h-4 w-4" />
                 <span className="sr-only">깃허브</span>
               </button>

@@ -1,7 +1,12 @@
 @import 'tailwindcss';
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: 'Noto Sans KR', sans-serif;
+  color: #0a0a0a;
+  background-color: #ffffff;
+}
+.dark body {
+  background: #0a0a0a;
+  color: #ffffff;
 }
 /* @import 'node_modules/modern-normalize/modern-normalize.css'; */
 /* @custom-variant dark (&:where(.dark, .dark *)); */
@@ -10,23 +15,95 @@ body {
 /* @layer components - 재사용 가능한 ui요소에 스타일 지정 */
 /* @utilities - margin, padding, colors 등과 같은 개별 속성에 대한 스타일*/
 /* @apply - css에 tailwindcss 문법을 넣는 것 */
+/* :root {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #fafafa;
+
+  --color-primary: #171717;
+  --color-primary-foreground: #fafafa;
+
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #0a0a0a;
+} */
+
+/* 갔다와서 수정; */
+.dark {
+  /* color: #ffffff; */
+  /* background-color: #0a0a0a; */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+
+  --color-card: #0a0a0a;
+  --color-card-foreground: #ffffff;
+
+  --color-popover: #fafafa;
+  --color-popover-foreground: #ffffff;
+
+  --color-primary: #fafafa;
+  --color-primary-foreground: #171717;
+
+  --color-secondary: #171717;
+  --color-secondary-foreground: #f5f5f5;
+
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #171717;
+  --color-accent-foreground: #fafafa;
+
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #262626;
+  --color-input: #262626;
+  --color-ring: #d4d4d4;
+  --color-shadow: rgba(30, 30, 30, 0.3);
+}
 
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #181818;
+  --color-foreground: #0a0a0a;
 
-  --color-line: #e2e8f0;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
 
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #71717a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #fafafa;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #020817;
+  --color-primary: #171717;
+  --color-primary-foreground: #fafafa;
 
-  /* --radius: 0.5rem; */
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #0a0a0a;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
   --animate-slideDown: slideDown 0.5s ease-out 200ms backwards;
-
   @keyframes slideDown {
     0% {
       transform: translateY(-100px);
@@ -35,6 +112,18 @@ body {
       transform: translateY(0px);
     }
   }
+  --animate-slideDownMobile: slideDownMobile 0.5s ease-out backwards;
+  @keyframes slideDownMobile {
+    0% {
+      opacity: 0;
+      height: 0px;
+    }
+    100% {
+      opacity: 1;
+      height: 270px;
+    }
+  }
+
   --animate-fadeUp8F: fadeUp8F 0.8s ease-out forwards;
   @keyframes fadeUp8F {
     0% {
@@ -58,6 +147,7 @@ body {
       transform: translateY(0px);
     }
   }
+
   --animate-fadeUp6F: fadeUp6F 0.6s ease-out forwards;
   @keyframes fadeUp6F {
     0% {
@@ -81,6 +171,7 @@ body {
       transform: translateY(0px);
     }
   }
+
   --animate-fadeRight6F: fadeRight6F 0.6s ease-out 200ms forwards;
   @keyframes fadeRight6F {
     0% {
@@ -100,6 +191,7 @@ body {
       transform: scale(1);
     }
   }
+
   --animate-zoom-out: zoom-out 0.15s ease-out forwards;
   @keyframes zoom-out {
     0% {
@@ -111,6 +203,7 @@ body {
       transform: scale(0.9);
     }
   }
+
   --animate-fade-in: fade-in 0.15s ease-out backwards;
   @keyframes fade-in {
     0% {
@@ -120,6 +213,7 @@ body {
       opacity: 1;
     }
   }
+
   --animate-fade-out: fade-out 0.15s ease-out forwards;
   @keyframes fade-out {
     0% {
@@ -129,6 +223,7 @@ body {
       opacity: 0;
     }
   }
+
   --animate-fadeSlide-left: fadeSlide-left 0.5s ease-out backwards;
   @keyframes fadeSlide-left {
     0% {
@@ -140,6 +235,7 @@ body {
       transform: translateX(0px);
     }
   }
+
   --animate-fadeSlide-right: fadeSlide-right 0.5s ease-out backwards;
   @keyframes fadeSlide-right {
     0% {
@@ -151,10 +247,6 @@ body {
       transform: translateX(0px);
     }
   }
-}
-
-.border {
-  border-color: var(--border);
 }
 
 @utility container {
@@ -203,4 +295,66 @@ body {
   padding: 20px;
   max-width: 1280px;
   margin: auto;
+} */
+
+/* @layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+
+    --popover: #ffffff;
+    --popover-foreground: #fafafa;
+
+    --primary: #171717;
+    --primary-foreground: #fafafa;
+
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
+
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #171717;
+
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #0a0a0a;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+
+    --card: #0a0a0a;
+    --card-foreground: #ffffff;
+
+    --popover: #fafafa;
+    --popover-foreground: #ffffff;
+
+    --primary: #fafafa;
+    --primary-foreground: #171717 --secondary: #171717;
+    --secondary-foreground: #f5f5f5;
+
+    --muted: #737373;
+    --muted-foreground: #f5f5f5;
+
+    --accent: #171717;
+    --accent-foreground: #fafafa;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #ffffff;
+
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d4;
+  }
 } */
