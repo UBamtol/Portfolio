@@ -8,6 +8,8 @@ body {
   background: #0a0a0a;
   color: #ffffff;
 }
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* @import 'node_modules/modern-normalize/modern-normalize.css'; */
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 /* 여기에 색상들을 다 지정해놓고 라이트모드일때, 다크모드일때, 시스템 설정 모드일때 */
@@ -73,7 +75,7 @@ body {
   --color-border: #262626;
   --color-input: #262626;
   --color-ring: #d4d4d4;
-  --color-shadow: rgba(30, 30, 30, 0.3);
+  --color-shadow: #ffffff0d;
 }
 
 @theme {
@@ -101,7 +103,7 @@ body {
   --color-border: #e5e5e5;
   --color-input: #e5e5e5;
   --color-ring: #0a0a0a;
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow: #ffffff0d;
 
   --animate-slideDown: slideDown 0.5s ease-out 200ms backwards;
   @keyframes slideDown {
@@ -250,15 +252,11 @@ body {
 }
 
 @utility container {
-  /* padding: 1rem; */
+  width: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0 2rem 0 2rem;
   max-width: 1400px;
 }
-/* @utility container {
-  padding: 20px;
-  max-width: 1280px;
-  margin: auto;
-} */
-
 /* 속성 추가하는 것 */
 /* @theme {
   --deepblue-500: #023047;
@@ -295,66 +293,4 @@ body {
   padding: 20px;
   max-width: 1280px;
   margin: auto;
-} */
-
-/* @layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-
-    --card: #ffffff;
-    --card-foreground: #0a0a0a;
-
-    --popover: #ffffff;
-    --popover-foreground: #fafafa;
-
-    --primary: #171717;
-    --primary-foreground: #fafafa;
-
-    --secondary: #f5f5f5;
-    --secondary-foreground: #171717;
-
-    --muted: #f5f5f5;
-    --muted-foreground: #737373;
-
-    --accent: #f5f5f5;
-    --accent-foreground: #171717;
-
-    --destructive: #ef4444;
-    --destructive-foreground: #171717;
-
-    --border: #e5e5e5;
-    --input: #e5e5e5;
-    --ring: #0a0a0a;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: #0a0a0a;
-    --foreground: #fafafa;
-
-    --card: #0a0a0a;
-    --card-foreground: #ffffff;
-
-    --popover: #fafafa;
-    --popover-foreground: #ffffff;
-
-    --primary: #fafafa;
-    --primary-foreground: #171717 --secondary: #171717;
-    --secondary-foreground: #f5f5f5;
-
-    --muted: #737373;
-    --muted-foreground: #f5f5f5;
-
-    --accent: #171717;
-    --accent-foreground: #fafafa;
-
-    --destructive: #7f1d1d;
-    --destructive-foreground: #ffffff;
-
-    --border: #262626;
-    --input: #262626;
-    --ring: #d4d4d4;
-  }
 } */

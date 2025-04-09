@@ -32,7 +32,7 @@ const About = () => {
           <div
             className={`relative transition-opacity md:col-span-1 ${isVisible ? 'animate-fadeUp6F' : 'opacity-0'}`}
           >
-            <div className="relative overflow-hidden rounded-lg shadow-lg">
+            <div className="dark:shadow-shadow relative overflow-hidden rounded-lg shadow-lg">
               <img
                 src="/assets/yuinjun_blue_full.jpg"
                 // src="/assets/placeholder.svg"

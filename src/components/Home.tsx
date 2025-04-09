@@ -8,6 +8,7 @@ const Home = () => {
       <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-4 md:px-6">
         <div className="absolute inset-0 z-0">
           <div className="from-primary/10 to-secondary/10 absolute inset-0 bg-gradient-to-r opacity-50" />
+          {/* <div className="from-primary to-background absolute inset-0 bg-radial from-10% to-70% opacity-50" /> */}
         </div>
 
         <div className="z-10 mx-auto max-w-3xl text-center">
@@ -40,7 +41,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="hover:bg-muted-foreground/5 absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer rounded-full p-2 shadow-lg duration-300">
+      <div className="hover:bg-muted-foreground/10 dark:shadow-shadow duration-lg absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer rounded-full p-2 shadow-lg">
         <ArrowDown
           className="text-primary h-6 w-6"
           onClick={() => {

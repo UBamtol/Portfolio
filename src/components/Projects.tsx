@@ -119,7 +119,7 @@ const Projects = () => {
         <div ref={targetRef} className="relative">
           <div className="pointer-events-none absolute top-1/2 z-10 hidden w-full -translate-y-1/2 justify-between px-4 md:flex">
             <button
-              className="bg-background hover:bg-accent pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
+              className="bg-background hover:bg-accent dark:shadow-shadow pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
               onClick={() => (preProject(), handleClicked())}
               disabled={buttonDisabled}
             >
@@ -127,7 +127,7 @@ const Projects = () => {
               <span className="sr-only">Previous project</span>
             </button>
             <button
-              className="bg-background hover:bg-accent pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
+              className="bg-background hover:bg-accent dark:shadow-shadow pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
               onClick={() => (nextProject(), handleClicked())}
               disabled={buttonDisabled}
             >
@@ -191,7 +191,7 @@ const Projects = () => {
                 {projects[activeProject].tags.map((tag, index) => (
                   <div
                     key={index}
-                    className="bg-secondary text-secondary-foreground hover:bg-secondary/10 flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold hover:-translate-y-0.5 hover:cursor-pointer hover:shadow-md"
+                    className="bg-secondary text-secondary-foreground hover:bg-secondary/10 dark:shadow-shadow flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold hover:-translate-y-0.5 hover:cursor-pointer hover:shadow-md"
                   >
                     {tag}
                   </div>
@@ -229,7 +229,7 @@ const Projects = () => {
           >
             <div
               data-state={`${isClosing ? 'open' : 'closed'}`}
-              className="bg-background data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out fixed top-1/2 left-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 rounded-lg p-6 shadow-lg sm:max-w-[600px]"
+              className="bg-background data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out dark:shadow-shadow fixed top-1/2 left-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 rounded-lg p-6 shadow-lg sm:max-w-[600px]"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col space-y-2 text-center sm:text-left">

@@ -38,11 +38,11 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={`dark:shadow-shadow fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isMobileMenuOpen
-          ? 'bg-background shadow-sm'
+          ? 'bg-background shadow-sm dark:shadow-md'
           : isScrolled
-            ? 'bg-background/80 shadow-sm backdrop-blur-lg'
+            ? 'bg-background/80 shadow-sm backdrop-blur-lg dark:shadow-md'
             : 'bg-transparent'
       } animate-slideDown`}
     >
