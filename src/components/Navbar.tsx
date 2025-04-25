@@ -52,6 +52,13 @@ const Navbar = () => {
             <a
               href="#"
               className="text-primary text-2xl font-bold tracking-tight"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#home');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Yu InJun's Portfolio
             </a>
