@@ -75,14 +75,22 @@ const About = () => {
               className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} flex flex-wrap items-center gap-4 text-sm transition-opacity`}
               style={{ animationDelay: '0.8s' }}
             >
-              <button className="hover:bg-accent hover:text-accent-foreground border-input bg-background flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer">
+              <a
+                className="hover:bg-accent hover:text-accent-foreground border-input bg-background flex h-9 items-center justify-center gap-2 rounded-md border px-3 font-medium hover:cursor-pointer"
+                href="assets/YuInJun_resume.pdf"
+                download="YuInJun's_resume"
+              >
                 <FileText className="h-4 w-4" />
                 이력서 다운로드
-              </button>
-              <button className="hover:bg-accent hover:text-accent-foreground flex h-10 w-10 items-center justify-center gap-2 rounded-full px-3 hover:cursor-pointer">
+              </a>
+              <a
+                className="hover:bg-accent hover:text-accent-foreground flex h-10 w-10 items-center justify-center gap-2 rounded-full px-3 hover:cursor-pointer"
+                href="https://github.com/UBamtol"
+                target="_blank"
+              >
                 <Github className="h-4 w-4" />
                 <span className="sr-only">깃허브</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
