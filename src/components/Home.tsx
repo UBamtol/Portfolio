@@ -29,15 +29,27 @@ const Home = () => {
           </div>
 
           <div
-            className="animate-fadeUp8B flex flex-col justify-center gap-4 sm:flex-row"
+            className="animate-fadeUp8B flex flex-col justify-center gap-4 text-sm sm:flex-row"
             style={{ animationDelay: '0.4s' }}
           >
-            <button className="bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md border px-8 text-sm font-medium hover:cursor-pointer">
+            <button
+              className="bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md border px-8 font-medium hover:cursor-pointer"
+              onClick={() => {
+                const projectSection = document.getElementById('projects');
+                if (projectSection) {
+                  projectSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               프로젝트 보기
             </button>
-            <button className="bg-background border-input hover:bg-accent hover:text-accent-foreground h-11 rounded-md border px-8 text-sm font-medium hover:cursor-pointer">
+            <a
+              className="bg-background border-input hover:bg-accent hover:text-accent-foreground flex h-11 items-center justify-center rounded-md border px-8 font-medium hover:cursor-pointer"
+              href="assets/YuInJun_resume.pdf"
+              download="YuInJun_resume"
+            >
               이력서 다운로드
-            </button>
+            </a>
           </div>
         </div>
       </div>
