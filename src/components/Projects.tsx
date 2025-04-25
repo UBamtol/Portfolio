@@ -6,6 +6,7 @@ import {
   Github,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { projects } from '@/data/projects.ts';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,47 +48,21 @@ const Projects = () => {
     };
   }, [modalOpen]);
 
-  const projects = [
-    {
-      title: '프로젝트1',
-      description: '설명1',
-      image: '/assets/placeholder.svg?height=600&width=800',
-      tags: ['React', 'Tailwind CSS', 'Redux', 'Firebase'],
-      liveUrl: '#',
-      githubUrl: '#',
-      challenge: '도전과제',
-      solution: '해결방법',
-      result: '결과',
-    },
-    {
-      title: '프로젝트2',
-      description: '설명2',
-      image: '/assets/placeholder.svg?height=600&width=800',
-      tags: ['React', 'Tailwind CSS', 'Redux', 'Firebase'],
-      liveUrl: '#',
-      githubUrl: '#',
-      challenge: '도전과제',
-      solution: '해결방법',
-      result: '결과',
-    },
-    {
-      title: '프로젝트3',
-      description: '설명3',
-      image: '/assets/placeholder.svg?height=600&width=800',
-      tags: ['React', 'Tailwind CSS', 'Redux', 'Firebase'],
-      liveUrl: '#',
-      githubUrl: '#',
-      challenge: '도전과제',
-      solution: '해결방법',
-      result: '결과',
-    },
-  ];
+  // 이미지 preload를 위한 useEffect
+  useEffect(() => {
+    projects.forEach((p) => {
+      const img = new Image();
+      img.src = p.image;
+    });
+  }, []);
 
   const nextProject = () => {
     setActiveProject((prev) => (prev + 1) % projects.length);
+    handleClicked();
   };
   const preProject = () => {
     setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
+    handleClicked();
   };
   const handleClose = () => {
     setIsClosing(!isClosing);
@@ -120,7 +95,7 @@ const Projects = () => {
           <div className="pointer-events-none absolute top-1/2 z-10 hidden w-full -translate-y-1/2 justify-between px-4 md:flex">
             <button
               className="bg-background hover:bg-accent dark:shadow-shadow pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
-              onClick={() => (preProject(), handleClicked())}
+              onClick={() => preProject()}
               disabled={buttonDisabled}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -128,7 +103,7 @@ const Projects = () => {
             </button>
             <button
               className="bg-background hover:bg-accent dark:shadow-shadow pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
-              onClick={() => (nextProject(), handleClicked())}
+              onClick={() => nextProject()}
               disabled={buttonDisabled}
             >
               <ChevronRight className="h-5 w-5" />
@@ -145,20 +120,32 @@ const Projects = () => {
               <img
                 src={projects[activeProject].image || '/assets/placeholder.svg'}
                 className="h-auto w-full object-cover"
+                loading="eager"
               />
               <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-all hover:opacity-100">
                 <div className="flex gap-4">
-                  <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer">
-                    <a
-                      href={projects[activeProject].liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </a>
-                  </button>
+                  {projects[activeProject].liveUrl === '#' ? (
+                    // <button
+                    //   className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer"
+                    //   onClick={() => alert(projects[activeProject].liveUrl)}
+                    // >
+                    //   <ExternalLink className="h-4 w-4" />
+                    //   Live Demo
+                    // </button>
+                    ''
+                  ) : (
+                    <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer">
+                      <a
+                        href={projects[activeProject].liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Live Demo
+                      </a>
+                    </button>
+                  )}
 
                   <button className="hover:bg-accent hover:text-accent-foreground border-input bg-background flex h-9 items-center justify-center gap-2 rounded-md border px-3 text-sm font-medium hover:cursor-pointer">
                     <a
@@ -260,29 +247,35 @@ const Projects = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-between">
-                <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
-                  <a
-                    href={projects[activeProject].githubUrl}
-                    target="blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 p-2 text-sm"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    라이브 데모
-                  </a>
-                </button>
-                <button className="bg-background hover:bg-accent hover:text-accent-foreground border-border flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
-                  <a
-                    href={projects[activeProject].githubUrl}
-                    target="blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 p-2 text-sm"
-                  >
-                    <Github className="h-4 w-4" />
-                    GitHub 저장소
-                  </a>
-                </button>
+              <div className="flex flex-col">
+                <div className="text-alram-foreground pb-0.5 text-xs">
+                  ※ 데모가 준비되어 있지 않습니다.
+                </div>
+                <div className="flex justify-between">
+                  <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
+                    <a
+                      href={projects[activeProject].liveUrl}
+                      target="blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-2 text-sm"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      라이브 데모
+                    </a>
+                  </button>
+
+                  <button className="bg-background hover:bg-accent hover:text-accent-foreground border-border flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
+                    <a
+                      href={projects[activeProject].githubUrl}
+                      target="blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-2 text-sm"
+                    >
+                      <Github className="h-4 w-4" />
+                      GitHub 저장소
+                    </a>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
