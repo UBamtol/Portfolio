@@ -4,7 +4,9 @@ import {
   Code,
   ExternalLink,
   Github,
+  X,
 } from 'lucide-react';
+
 import { useEffect, useRef, useState } from 'react';
 import { projects } from '@/data/projects.ts';
 
@@ -57,12 +59,12 @@ const Projects = () => {
   }, []);
 
   const nextProject = () => {
-    setActiveProject((prev) => (prev + 1) % projects.length);
     handleClicked();
+    setActiveProject((prev) => (prev + 1) % projects.length);
   };
   const preProject = () => {
-    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
     handleClicked();
+    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
   const handleClose = () => {
     setIsClosing(!isClosing);
@@ -85,9 +87,9 @@ const Projects = () => {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">Projects</h2>
           <div className="bg-primary mx-auto mb-6 h-1 w-20" />
-          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            다양한 기술을 활용하여 개발한 프로젝트들입니다. 각 프로젝트는 특정
-            문제를 해결하기 위한 과정과 결과물을 보여줍니다.
+          <p className="mx-auto max-w-2xl text-lg whitespace-pre-wrap">
+            {`다양한 기술을 활용하여 개발한 프로젝트들입니다.
+            각 프로젝트는 특정 문제를 해결하기 위한 과정과 결과물을 보여줍니다.`}
           </p>
         </div>
 
@@ -115,34 +117,35 @@ const Projects = () => {
             className={`${isVisible ? 'animate-fadeUp6F' : 'opacity-0'} gird-cols-1 grid items-center gap-8 md:grid-cols-2`}
           >
             <div
-              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg border-border relative overflow-hidden rounded-lg border`}
+              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg border-border relative min-h-[250px] overflow-hidden rounded-lg border`}
             >
               <img
                 src={projects[activeProject].image || '/assets/placeholder.svg'}
-                className="h-auto w-full object-cover"
+                className="h-auto w-full translate-z-0 object-cover backface-hidden"
                 loading="eager"
               />
               <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-all hover:opacity-100">
                 <div className="flex gap-4">
                   {projects[activeProject].liveUrl === '#' ? (
-                    // <button
-                    //   className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer"
-                    //   onClick={() => alert(projects[activeProject].liveUrl)}
-                    // >
-                    //   <ExternalLink className="h-4 w-4" />
-                    //   Live Demo
-                    // </button>
-                    ''
+                    <button
+                      className={`flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium ${projects[activeProject].liveUrl === '#' ? 'bg-muted-foreground/60 text-primary-foreground cursor-not-allowed' : 'bg-primary text-primary-foreground hover:bg-primary/90 hover:cursor-pointer'}`}
+                      disabled={
+                        projects[activeProject].liveUrl === '#' ? true : false
+                      }
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      라이브 데모
+                    </button>
                   ) : (
                     <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium hover:cursor-pointer">
                       <a
                         href={projects[activeProject].liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm"
+                        className={`flex items-center gap-2 text-sm ${projects[activeProject].liveUrl === '#' ? 'pointer-events-none' : ''}`}
                       >
                         <ExternalLink className="h-4 w-4" />
-                        Live Demo
+                        라이브 데모
                       </a>
                     </button>
                   )}
@@ -155,7 +158,7 @@ const Projects = () => {
                       className="flex items-center gap-2 text-sm"
                     >
                       <Github className="h-4 w-4" />
-                      Code
+                      Github 저장소
                     </a>
                   </button>
                 </div>
@@ -178,7 +181,7 @@ const Projects = () => {
                 {projects[activeProject].tags.map((tag, index) => (
                   <div
                     key={index}
-                    className="bg-secondary text-secondary-foreground hover:bg-secondary/10 dark:shadow-shadow flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold hover:-translate-y-0.5 hover:cursor-pointer hover:shadow-md"
+                    className="bg-secondary text-secondary-foreground dark:shadow-shadow flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold hover:-translate-y-0.5 hover:cursor-pointer hover:shadow-md"
                   >
                     {tag}
                   </div>
@@ -219,13 +222,19 @@ const Projects = () => {
               className="bg-background data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out dark:shadow-shadow fixed top-1/2 left-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 rounded-lg p-6 shadow-lg sm:max-w-[600px]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col space-y-2 text-center sm:text-left">
-                <div className="text-lg leading-none font-semibold tracking-tight">
-                  {projects[activeProject].title}
+              <div className="flex justify-between text-center sm:text-left">
+                <div className="space-y-2">
+                  <div className="text-lg leading-none font-semibold tracking-tight">
+                    {projects[activeProject].title}
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    프로젝트 개발 과정과 문제 해결 방법
+                  </div>
                 </div>
-                <div className="text-muted-foreground text-sm">
-                  프로젝트 개발 과정과 문제 해결 방법
-                </div>
+                <X
+                  className="hover:cursor-pointer"
+                  onClick={() => handleClose()}
+                />
               </div>
               <div className="space-y-4 py-4">
                 <div>
@@ -248,16 +257,26 @@ const Projects = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-alram-foreground pb-0.5 text-xs">
-                  ※ 데모가 준비되어 있지 않습니다.
-                </div>
+                {projects[activeProject].liveUrl === '#' ? (
+                  <div className="text-alram-foreground pb-0.5 text-xs">
+                    ※ 데모가 준비되어 있지 않습니다.
+                  </div>
+                ) : (
+                  ''
+                )}
+
                 <div className="flex justify-between">
-                  <button className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md border font-medium hover:cursor-pointer">
+                  <button
+                    className={`flex items-center justify-center gap-2 rounded-md font-medium ${projects[activeProject].liveUrl === '#' ? 'bg-primary/60 text-primary-foreground cursor-not-allowed' : 'bg-primary text-primary-foreground hover:bg-primary/90 hover:cursor-pointer'}`}
+                    disabled={
+                      projects[activeProject].liveUrl === '#' ? true : false
+                    }
+                  >
                     <a
                       href={projects[activeProject].liveUrl}
                       target="blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 p-2 text-sm"
+                      className={`flex items-center gap-2 p-2 text-sm ${projects[activeProject].liveUrl === '#' ? 'pointer-events-none' : ''}`}
                     >
                       <ExternalLink className="h-4 w-4" />
                       라이브 데모
