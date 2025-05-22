@@ -5,8 +5,8 @@ body {
   background-color: #ffffff;
 }
 .dark body {
-  background: #0a0a0a;
   color: #ffffff;
+  background-color: #0a0a0a;
 }
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -44,7 +44,6 @@ body {
   --color-ring: #0a0a0a;
 } */
 
-/* 갔다와서 수정; */
 .dark {
   /* color: #ffffff; */
   /* background-color: #0a0a0a; */
@@ -63,7 +62,7 @@ body {
   --color-secondary: #171717;
   --color-secondary-foreground: #f5f5f5;
 
-  --color-muted: #f5f5f5;
+  --color-muted: #282828;
   --color-muted-foreground: #737373;
 
   --color-accent: #171717;

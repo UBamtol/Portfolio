@@ -21,7 +21,7 @@ const Home = () => {
               className="animate-fadeUp8B"
               style={{ animationDelay: '0.2s' }}
             >
-              <p className="text-muted-foreground mb-8 text-xl md:text-2xl">
+              <p className="text-primary mb-8 text-xl md:text-2xl">
                 <b>사용자 경험</b>을 디자인하는 코드, 프론트엔드 개발자{' '}
                 <b>유인준</b>입니다.
               </p>

@@ -51,7 +51,7 @@ const About = () => {
               <div className="bg-primary h-1 w-20" />
             </div>
             <div
-              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-lg transition-opacity`}
               style={{ animationDelay: '0.4s' }}
             >
               <b>사용자 경험</b>을 혁신하는 프론트엔드 개발에 대한 깊은 열정을
@@ -61,7 +61,7 @@ const About = () => {
               활용하여 사용자 친화적인 웹 인터페이스 개발에 주력해 왔습니다.
             </div>
             <div
-              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-muted-foreground text-lg transition-opacity`}
+              className={`${isVisible ? 'animate-fadeUp6B' : 'opacity-0'} text-lg transition-opacity`}
               style={{ animationDelay: '0.6s' }}
             >
               <b>끊임없는 학습</b>을 통해 <b>빠르게 성장</b>하며, <b>혁신적</b>

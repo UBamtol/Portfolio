@@ -372,10 +372,9 @@ const Skills = () => {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">Skills</h2>
           <div className="bg-primary mx-auto mb-6 h-1 w-20 max-w-2xl" />
-          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            프론트엔드 개발에 필요한 다양한 기술들을 학습하고 프로젝트에
-            적용해왔습니다. 지속적인 학습을 통해 새로운 기술을 습득하고
-            있습니다.
+          <p className="mx-auto max-w-2xl text-lg whitespace-pre-wrap">
+            {`프론트엔드 개발에 필요한 다양한 기술들을 학습하고 프로젝트에 적용해왔습니다.
+            지속적인 학습을 통해 새로운 기술을 습득하고 있습니다.`}
           </p>
         </div>
 
