@@ -38,12 +38,12 @@ const Contact = () => {
       value: 'https://github.com/UBamtol',
       href: 'https://github.com/UBamtol',
     },
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      title: 'Linkedin',
-      value: 'https://www.linkedin.com/in/98-yuinjun/',
-      href: 'https://www.linkedin.com/in/98-yuinjun/',
-    },
+    // {
+    //   icon: <Linkedin className="h-5 w-5" />,
+    //   title: 'Linkedin',
+    //   value: 'https://www.linkedin.com/in/98-yuinjun/',
+    //   href: 'https://www.linkedin.com/in/98-yuinjun/',
+    // },
   ];
 
   return (
@@ -52,14 +52,14 @@ const Contact = () => {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold">Contact Me</h2>
           <div className="bg-primary mx-auto mb-6 h-1 w-20" />
-          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            프로젝트 협업, 채용 문의, 또는 궁금한 점이 있으시면 언제든지
-            연락해주세요. 빠른 시일 내에 답변 드리겠습니다.
+          <p className="mx-auto max-w-2xl text-lg whitespace-pre-wrap">
+            {`프로젝트 협업, 채용 문의, 또는 궁금한 점이 있으시면 언제든지 연락해주세요.
+            빠른 시일 내에 답변 드리겠습니다.`}
           </p>
         </div>
         <div
           ref={targetRef}
-          className="relative grid grid-cols-1 gap-4 md:mx-60 lg:grid-cols-3"
+          className={`relative grid grid-cols-1 gap-4 md:mx-60 ${`lg:grid-cols-${contactInfo.length}`}`}
         >
           {contactInfo.map((item, index) => (
             <div
