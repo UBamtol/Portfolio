@@ -62,7 +62,7 @@ const Projects = () => {
     handleClicked();
     setActiveProject((prev) => (prev + 1) % projects.length);
   };
-  const preProject = () => {
+  const prevProject = () => {
     handleClicked();
     setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
@@ -97,7 +97,7 @@ const Projects = () => {
           <div className="pointer-events-none absolute top-1/2 z-10 hidden w-full -translate-y-1/2 justify-between px-4 md:flex">
             <button
               className="bg-background hover:bg-accent dark:shadow-shadow pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full shadow-sm backdrop-blur-sm duration-200 hover:cursor-pointer hover:shadow-md"
-              onClick={() => preProject()}
+              onClick={() => prevProject()}
               disabled={buttonDisabled}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -117,13 +117,26 @@ const Projects = () => {
             className={`${isVisible ? 'animate-fadeUp6F' : 'opacity-0'} gird-cols-1 grid items-center gap-8 md:grid-cols-2`}
           >
             <div
-              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg border-border relative min-h-[250px] overflow-hidden rounded-lg border`}
+              className={`${isClicked ? 'animate-fadeSlide-left' : ''} shadw-lg border-border relative aspect-square min-h-[250px] overflow-hidden rounded-lg border`}
             >
-              <img
+              {projects.map((project, index) => (
+                <img
+                  key={index}
+                  src={project.image || '/assets/placeholder.svg'}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity backface-hidden ${
+                    index === activeProject
+                      ? 'z-10 opacity-100'
+                      : '-z-10 opacity-0'
+                  }`}
+                  alt={project.title}
+                  loading="eager"
+                />
+              ))}
+              {/* <img
                 src={projects[activeProject].image || '/assets/placeholder.svg'}
                 className="h-auto w-full translate-z-0 object-cover backface-hidden"
                 loading="eager"
-              />
+              /> */}
               <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-all hover:opacity-100">
                 <div className="flex gap-4">
                   {projects[activeProject].liveUrl === '#' ? (
