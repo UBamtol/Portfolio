@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const Contact = () => {
@@ -59,7 +59,8 @@ const Contact = () => {
         </div>
         <div
           ref={targetRef}
-          className={`relative grid grid-cols-1 gap-4 md:mx-60 ${`lg:grid-cols-${contactInfo.length}`}`}
+          // className={`relative grid grid-cols-1 gap-4 md:mx-60 ${`lg:grid-cols-${contactInfo.length}`}`}
+          className="relative grid grid-cols-1 gap-4 md:mx-60 lg:grid-cols-2"
         >
           {contactInfo.map((item, index) => (
             <div
