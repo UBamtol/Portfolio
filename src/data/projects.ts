@@ -65,7 +65,7 @@ export const projects: Project[] = [
   {
     title: 'DTC(DUC_Tech_Community)',
     description: '대림대학교 컴퓨터 소프트웨어과 학생 커뮤니티 사이트',
-    image: '/assets/DUC_project.svg?height=600&width=800',
+    image: '/assets/DTC_project.svg?height=600&width=800',
     tags: [
       'React',
       'TypeScript',
