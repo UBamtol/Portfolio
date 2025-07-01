@@ -14,7 +14,7 @@ const Home = () => {
         <div className="z-10 mx-auto max-w-3xl text-center">
           <div>
             <h1 className="animate-fadeUp8F mb-4 text-4xl font-bold tracking-tight md:text-6xl">
-              <span className="text-primary">Frontend Developer</span>
+              <span className="text-primary">Front-end Developer</span>
             </h1>
 
             <div
