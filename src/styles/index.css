@@ -1,0 +1,297 @@
+@import 'tailwindcss';
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #0a0a0a;
+  background-color: #ffffff;
+}
+.dark body {
+  color: #ffffff;
+  background-color: #0a0a0a;
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+/* 여기에 색상들을 다 지정해놓고 라이트모드일때, 다크모드일때, 시스템 설정 모드일때 */
+/* @layer base - 기본이 되는 디자인, 스타일이 전역으로 적용됨 */
+/* @layer components - 재사용 가능한 ui요소에 스타일 지정 */
+/* @utilities - margin, padding, colors 등과 같은 개별 속성에 대한 스타일*/
+/* @apply - css에 tailwindcss 문법을 넣는 것 */
+/* :root {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #fafafa;
+
+  --color-primary: #171717;
+  --color-primary-foreground: #fafafa;
+
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #0a0a0a;
+} */
+
+.dark {
+  /* color: #ffffff; */
+  /* background-color: #0a0a0a; */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+
+  --color-card: #0a0a0a;
+  --color-card-foreground: #ffffff;
+
+  --color-popover: #fafafa;
+  --color-popover-foreground: #ffffff;
+
+  --color-primary: #fafafa;
+  --color-primary-foreground: #171717;
+
+  --color-secondary: #171717;
+  --color-secondary-foreground: #f5f5f5;
+
+  --color-muted: #282828;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #171717;
+  --color-accent-foreground: #fafafa;
+
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #262626;
+  --color-input: #262626;
+  --color-ring: #d4d4d4;
+  --color-shadow: #ffffff0d;
+  --color-alram-foreground: #ff644d;
+}
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #fafafa;
+
+  --color-primary: #171717;
+  --color-primary-foreground: #fafafa;
+
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #0a0a0a;
+  --color-shadow: #ffffff0d;
+  --color-alram-foreground: #ff644d;
+
+  --animate-slideDown: slideDown 0.5s ease-out 200ms backwards;
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  --animate-slideDownMobile: slideDownMobile 0.5s ease-out backwards;
+  @keyframes slideDownMobile {
+    0% {
+      opacity: 0;
+      height: 0px;
+    }
+    100% {
+      opacity: 1;
+      height: 270px;
+    }
+  }
+
+  --animate-fadeUp8F: fadeUp8F 0.8s ease-out forwards;
+  @keyframes fadeUp8F {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeUp8B: fadeUp8B 0.8s ease-out 200ms backwards;
+  @keyframes fadeUp8B {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeUp6F: fadeUp6F 0.6s ease-out forwards;
+  @keyframes fadeUp6F {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeUp6B: fadeUp6B 0.6s ease-out 200ms backwards;
+  @keyframes fadeUp6B {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fadeRight6F: fadeRight6F 0.6s ease-out 200ms forwards;
+  @keyframes fadeRight6F {
+    0% {
+      transform: translateX(30px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  --animate-zoom-in: zoom-in 0.15s ease-out backwards;
+  @keyframes zoom-in {
+    0% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  --animate-zoom-out: zoom-out 0.15s ease-out forwards;
+  @keyframes zoom-out {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+
+  --animate-fade-in: fade-in 0.15s ease-out backwards;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-fade-out: fade-out 0.15s ease-out forwards;
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  --animate-fadeSlide-left: fadeSlide-left 0.5s ease-out forwards;
+  @keyframes fadeSlide-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  --animate-fadeSlide-right: fadeSlide-right 0.5s ease-out backwards;
+  @keyframes fadeSlide-right {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
+
+@utility container {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0 2rem 0 2rem;
+  max-width: 1400px;
+}
+/* 속성 추가하는 것 */
+/* @theme {
+  --deepblue-500: #023047;
+  --amber-500: #fb8500;
+  --alabaster-500: #e0e1dd;
+  --text-base2: 40px;
+  --radius-lg: 30px;
+}
+.bg-deepblue {
+  background-color: var(--deepblue-500);
+}
+.typography {
+  p {
+    font-size: var(--text-base2);
+    color: var(--amber-500);
+  }
+  img {
+    border-radius: var(--radius-lg);
+  }
+}
+.bg-amber {
+  background-color: var(--amber-500);
+}
+
+.text-alabaster {
+  color: var(--alabaster-500);
+}
+.text-amber {
+  color: var(--amber-500);
+} */
+
+/* 자주 쓰는 스타일 구조를 설정할 수 있음 */
+/* @utility container {
+  padding: 20px;
+  max-width: 1280px;
+  margin: auto;
+} */

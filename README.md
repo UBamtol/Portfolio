@@ -1,2 +1,4 @@
-# Portfolio
-유밤톨의 포트폴리오
+- **`Project` :** 유인준 포트폴리오
+- **`Project duration` :** 2025.03.04 ~
+- **`Link` :** [배포 사이트](https://yuinjun-portfolio.vercel.app/)
+- **`Stack` :** Vite, React, TypeScript, Tailwind CSS
