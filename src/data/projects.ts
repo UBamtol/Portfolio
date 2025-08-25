@@ -28,7 +28,7 @@ export const projects: Project[] = [
     description: '영화 정보 검색 및 리뷰 서비스',
     image: '/assets/HowMovie_project.svg?height=600&width=800',
     tags: ['React', 'Next.js', 'Next-Auth', 'TailwindCSS', 'Axios'],
-    liveUrl: '#1',
+    liveUrl: '#',
     githubUrl: 'https://github.com/UBamtol/2022_Capstone-2_How_Movie',
     challenge:
       '이 프로젝트에서 처음으로 PL(프로젝트 리더)로서 기술적인 리더십을 발휘하고, 팀원들과의 효율적인 협업 프로세스를 구축해야 했습니다.',
